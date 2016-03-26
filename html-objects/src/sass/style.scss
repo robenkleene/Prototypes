@@ -1,9 +1,12 @@
-$line-height: 17px;
+$grid-color: #ccc;
+$grid-size: 70px;
 
-p {
-  line-height: $line-height;
+@mixin grid($size, $color) {
+  $end: $size + 1;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent $size, $size, $color $end), repeating-linear-gradient(-90deg, transparent, transparent $size, $color $size, $color $end);
+  background-size: $end $end;
 }
+
 body {
-  background-image: repeating-linear-gradient(0deg, transparent, transparent 70px, #CCC 70px, #CCC 71px), repeating-linear-gradient(-90deg, transparent, transparent 70px, #CCC 70px, #CCC 71px);
-  background-size: 71px 71px;
+  @include grid($grid-size, $grid-color);
 }

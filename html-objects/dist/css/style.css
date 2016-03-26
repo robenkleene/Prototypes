@@ -1,6 +1,3 @@
-p {
-  line-height: 17px; }
-
 body {
-  background-image: repeating-linear-gradient(0deg, transparent, transparent 70px, #CCC 70px, #CCC 71px), repeating-linear-gradient(-90deg, transparent, transparent 70px, #CCC 70px, #CCC 71px);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 70px, 70px, #ccc 71px), repeating-linear-gradient(-90deg, transparent, transparent 70px, #ccc 70px, #ccc 71px);
   background-size: 71px 71px; }
