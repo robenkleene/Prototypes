@@ -9,9 +9,10 @@ $grid-divider-color: #8c8c8c;
   $block-line-start: $block-size - 1;
   $block-line-end: $block-size;
 
-//repeating-linear-gradient(0deg, transparent, transparent $block-line-start, $block-color $block-line-start, $block-color $block-line-end);
+  $horizontal-block-lines: repeating-linear-gradient(0deg, transparent, transparent $block-line-start, $block-line-start, $block-color $block-line-end);
+  $vertical-block-lines: repeating-linear-gradient(-90deg, transparent, transparent $block-line-start, $block-color $block-line-start, $block-color $block-line-end);
 
-  background-image: repeating-linear-gradient(0deg, transparent, transparent $block-line-start, $block-line-start, $block-color $block-line-end), repeating-linear-gradient(-90deg, transparent, transparent $block-line-start, $block-color $block-line-start, $block-color $block-line-end);
+  background-image: $horizontal-block-lines, $vertical-block-lines;
   background-size: $block-line-end $block-line-end;
 }
 
