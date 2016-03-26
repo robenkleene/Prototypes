@@ -22,16 +22,9 @@ var globs = {
 };
 
 gulp.task('sass', function () {
-  var source = "./src/**/*.scss";
-  var destination = "./dist/css";
-
-  return gulp.src(source)
+  return gulp.src(globs.sass.src)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(destination));
-
-  // return gulp.src(paths.sass.src)
-  //   .pipe(sass().on('error', sass.logError))
-  //   .pipe(gulp.dest(paths.sass.dest));
+    .pipe(gulp.dest(paths.sass.dest));
 });
 
 gulp.task('watch', function () {
