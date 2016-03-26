@@ -4,10 +4,11 @@ $grid-color: #ccc;
 $grid-divider-color: #8c8c8c;
 
 @mixin grid($block-size, $block-color, $divider-blocks, $divider-color) {
-  $line-start: $block-size - 1;
-  $line-end: $block-size;
-  background-image: repeating-linear-gradient(0deg, transparent, transparent $line-start, $line-start, $block-color $line-end), repeating-linear-gradient(-90deg, transparent, transparent $line-start, $block-color $line-start, $block-color $line-end);
-  background-size: $line-end $line-end;
+  $grid-line-start: $block-size - 1;
+  $grid-line-end: $block-size;
+
+  background-image: repeating-linear-gradient(0deg, transparent, transparent $grid-line-start, $grid-line-start, $block-color $grid-line-end), repeating-linear-gradient(-90deg, transparent, transparent $grid-line-start, $block-color $grid-line-start, $block-color $grid-line-end);
+  background-size: $grid-line-end $grid-line-end;
 }
 
 body {
