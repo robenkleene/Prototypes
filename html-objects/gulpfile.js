@@ -10,22 +10,32 @@ var paths = {
   dest: './dist/'
 };
 
+paths.sass = {
+  src: path.join(paths.src, 'sass'),
+  dest: path.join(paths.dest, 'css')
+};
+
 var globs = {
-  sass: paths.src + '**/*.scss'
+  sass: {
+    src: path.join(paths.sass.src, '**/*.scss')
+  }
 };
 
 gulp.task('sass', function () {
-  console.log("globs.sass = " + globs.sass);
+  var source = "./src/**/*.scss";
+  var destination = "./dist/css";
 
-  // var src = path.join(paths.src, '**/*.scss');
-  // var dest = path.join(paths.build, '/css');
-  // return gulp.src(src)
+  return gulp.src(source)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(destination));
+
+  // return gulp.src(paths.sass.src)
   //   .pipe(sass().on('error', sass.logError))
-  //   .pipe(build);
+  //   .pipe(gulp.dest(paths.sass.dest));
 });
 
-// gulp.task('watch', function () {
-//   gulp.watch('./sass/**/*.scss', ['sass']);
-// });
+gulp.task('watch', function () {
+  gulp.watch(globs.sass.src, ['sass']);
+});
 
 gulp.task('default', ['sass']);
