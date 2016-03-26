@@ -1,12 +1,15 @@
+$grid-block-size: 10px;
+$grid-divider-blocks: 10;
 $grid-color: #ccc;
-$grid-size: 70px;
+$grid-divider-color: #8c8c8c;
 
-@mixin grid($size, $color) {
-  $end: $size + 1;
-  background-image: repeating-linear-gradient(0deg, transparent, transparent $size, $size, $color $end), repeating-linear-gradient(-90deg, transparent, transparent $size, $color $size, $color $end);
-  background-size: $end $end;
+@mixin grid($block-size, $block-color, $divider-blocks, $divider-color) {
+  $line-start: $block-size - 1;
+  $line-end: $block-size;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent $line-start, $line-start, $block-color $line-end), repeating-linear-gradient(-90deg, transparent, transparent $line-start, $block-color $line-start, $block-color $line-end);
+  background-size: $line-end $line-end;
 }
 
 body {
-  @include grid($grid-size, $grid-color);
+  @include grid($grid-block-size, $grid-color, $grid-divider-blocks, $grid-divider-color);
 }
