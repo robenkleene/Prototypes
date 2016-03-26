@@ -1,21 +1,38 @@
 $grid-block-size: 10px;
-$grid-divider-blocks: 10;
+$grid-divider-num-blocks: 10;
 $grid-color: #ccc;
 $grid-divider-color: #8c8c8c;
 // $grid-color: #ccc;
 // $grid-divider-color: #8c8c8c;
 
-@mixin grid($block-size, $block-color, $divider-blocks, $divider-color) {
-  $block-line-start: $block-size - 1;
-  $block-line-end: $block-size;
 
-  $horizontal-block-lines: repeating-linear-gradient(0deg, transparent, transparent $block-line-start, $block-line-start, $block-color $block-line-end);
-  $vertical-block-lines: repeating-linear-gradient(-90deg, transparent, transparent $block-line-start, $block-color $block-line-start, $block-color $block-line-end);
+@function line-background-image($degrees, $size, $color) {
+  $line-start: $size - 1;
+  $line-end: $size;
+  @return repeating-linear-gradient($degrees, transparent, transparent $line-start, $line-start, $color $line-end);
+}
+
+@function horizontal-line-background-image($size, $color) {
+  @return line-background-image(0deg, $size, $color);
+}
+
+@function vertical-line-background-image($size, $color) {
+  @return line-background-image(-90deg, $size, $color);
+}
+
+@mixin grid($block-size, $block-color, $divider-num-blocks, $divider-color) {
+  $horizontal-block-lines: horizontal-line-background-image($block-size, $block-color);
+  $vertical-block-lines: vertical-line-background-image($block-size, $block-color);
+
+  // Divider Lines
+  // $divider-size: $block-size * $divider-num-blocks;
+  // $divider-line-start: $divider-size - 1;
+  // $divider-line-end: $divider-size;
 
   background-image: $horizontal-block-lines, $vertical-block-lines;
-  background-size: $block-line-end $block-line-end;
+  background-size: $block-size $block-size;
 }
 
 body {
-  @include grid($grid-block-size, $grid-color, $grid-divider-blocks, $grid-divider-color);
+  @include grid($grid-block-size, $grid-color, $grid-divider-num-blocks, $grid-divider-color);
 }
