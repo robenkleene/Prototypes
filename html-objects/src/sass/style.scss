@@ -3,13 +3,18 @@
 // Grid
 $grid-block-size: 10px;
 $grid-divider-num-blocks: 10;
+$divider-size: $grid-block-size * $grid-divider-num-blocks;
 $grid-color: rgba(0, 0, 0, .25);
 $grid-divider-color: rgba(0, 0, 0, .5);
 
 // Assets
 $monitor-background-color: #000;
-$monitor-origin-x: $grid-block-size * 10;
-$monitor-origin-y: $grid-block-size * 10;
+$monitor-origin-x: $divider-size;
+$monitor-origin-y: $divider-size;
+$monitor-aspect-ratio-y: 3;
+$monitor-aspect-ratio-x: 4;
+$monitor-width: $divider-size * 4;
+$monitor-height: $monitor-width * ($monitor-aspect-ratio-y / $monitor-aspect-ratio-x);
 
 header,
 footer {
@@ -28,7 +33,7 @@ body {
 
 .monitor {
   background-color: $monitor-background-color;
-  height: 200px;
+  height: $monitor-height;
   position: absolute;
-  width: 200px;
+  width: $monitor-width;
 }
