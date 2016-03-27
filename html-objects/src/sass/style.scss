@@ -30,13 +30,9 @@ body {
   margin: 0;
 }
 
-.monitor-frame-1 {
-  left: $monitor-origin-x;
-  top: $monitor-origin-y;
-}
-
 .screen {
   background-color: $screen-background-color;
+  border-radius: 8px;
   height: $screen-height;
   position: absolute;
   right: $monitor-padding;
@@ -45,7 +41,10 @@ body {
 }
 
 .monitor {
+  left: $monitor-origin-x;
+  top: $monitor-origin-y;
   background-color: $monitor-background-color;
+  border-radius: 32px;
   height: $monitor-height;
   position: absolute;
   width: $monitor-width;
