@@ -1,0 +1,29 @@
+@function line-background-image($degrees, $size, $color) {
+  $line-start: $size - 1;
+  $line-end: $size;
+  @return repeating-linear-gradient($degrees, transparent, transparent $line-start, $line-start, $color $line-end);
+}
+
+@function horizontal-line-background-image($size, $color) {
+  @return line-background-image(0deg, $size, $color);
+}
+
+@function vertical-line-background-image($size, $color) {
+  @return line-background-image(-90deg, $size, $color);
+}
+
+@function grid-background-images($size, $color) {
+  @return horizontal-line-background-image($size, $color), vertical-line-background-image($size, $color)
+}
+
+@mixin artboard-grid($block-size, $block-color, $divider-num-blocks, $divider-color) {
+  // Blocks
+  $grid-background-images: grid-background-images($block-size, $block-color);
+  // Dividers
+  $divider-size: $block-size * $divider-num-blocks;
+  $divider-background-images: grid-background-images($divider-size, $divider-color);
+  // Blocks & Dividers
+  $background-images: join($divider-background-images, $grid-background-images);
+  background-image: $background-images;
+  background-size: $divider-size $divider-size;
+}

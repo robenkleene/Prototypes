@@ -1,38 +1,10 @@
+@import 'artboard';
+
 $grid-block-size: 10px;
 $grid-divider-num-blocks: 10;
 $grid-color: rgba(0, 0, 0, .25);
 $grid-divider-color: rgba(0, 0, 0, .5);
 
-@function line-background-image($degrees, $size, $color) {
-  $line-start: $size - 1;
-  $line-end: $size;
-  @return repeating-linear-gradient($degrees, transparent, transparent $line-start, $line-start, $color $line-end);
-}
-
-@function horizontal-line-background-image($size, $color) {
-  @return line-background-image(0deg, $size, $color);
-}
-
-@function vertical-line-background-image($size, $color) {
-  @return line-background-image(-90deg, $size, $color);
-}
-
-@function grid-background-images($size, $color) {
-  @return horizontal-line-background-image($size, $color), vertical-line-background-image($size, $color)
-}
-
-@mixin grid($block-size, $block-color, $divider-num-blocks, $divider-color) {
-  // Blocks
-  $grid-background-images: grid-background-images($block-size, $block-color);
-  // Dividers
-  $divider-size: $block-size * $divider-num-blocks;
-  $divider-background-images: grid-background-images($divider-size, $divider-color);
-  // Blocks & Dividers
-  $background-images: join($divider-background-images, $grid-background-images);
-  background-image: $background-images;
-  background-size: $divider-size $divider-size;
-}
-
 body {
-  @include grid($grid-block-size, $grid-color, $grid-divider-num-blocks, $grid-divider-color);
+  @include artboard-grid($grid-block-size, $grid-color, $grid-divider-num-blocks, $grid-divider-color);
 }
