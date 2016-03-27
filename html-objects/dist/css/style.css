@@ -17,10 +17,10 @@ body {
   width: 400px; }
 
 .monitor {
-  left: 70px;
-  top: 70px;
   background-color: #000;
   border-radius: 32px;
   height: 360px;
+  left: 70px;
   position: absolute;
+  top: 70px;
   width: 460px; }

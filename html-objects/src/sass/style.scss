@@ -41,11 +41,11 @@ body {
 }
 
 .monitor {
-  left: $monitor-origin-x;
-  top: $monitor-origin-y;
   background-color: $monitor-background-color;
   border-radius: 32px;
   height: $monitor-height;
+  left: $monitor-origin-x;
   position: absolute;
+  top: $monitor-origin-y;
   width: $monitor-width;
 }
