@@ -34,7 +34,8 @@ gulp.task('sass', function () {
 
 gulp.task('serve', ['sass'], function() {
     browserSync.init({
-        server: paths.dest
+        server: paths.dest,
+        notify: false
     });
     gulp.watch(globs.sass.src, ['sass']);
     gulp.watch(globs.html.dest)
