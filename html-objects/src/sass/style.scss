@@ -1,10 +1,7 @@
 $grid-block-size: 10px;
 $grid-divider-num-blocks: 10;
-$grid-color: #ccc;
-$grid-divider-color: #8c8c8c;
-// $grid-color: #ccc;
-// $grid-divider-color: #8c8c8c;
-
+$grid-color: rgba(0, 0, 0, .25);
+$grid-divider-color: rgba(0, 0, 0, .5);
 
 @function line-background-image($degrees, $size, $color) {
   $line-start: $size - 1;
@@ -25,11 +22,15 @@ $grid-divider-color: #8c8c8c;
 }
 
 @mixin grid($block-size, $block-color, $divider-num-blocks, $divider-color) {
+  // Blocks
   $grid-background-images: grid-background-images($block-size, $block-color);
-  // Divider Lines
-  background-image: $grid-background-images;
-  // background-image: $horizontal-block-lines, $vertical-block-lines;
-  background-size: $block-size $block-size;
+  // Dividers
+  $divider-size: $block-size * $divider-num-blocks;
+  $divider-background-images: grid-background-images($divider-size, $divider-color);
+  // Blocks & Dividers
+  $background-images: join($divider-background-images, $grid-background-images);
+  background-image: $background-images;
+  background-size: $divider-size $divider-size;
 }
 
 body {
