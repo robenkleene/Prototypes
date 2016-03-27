@@ -20,16 +20,15 @@ $grid-divider-color: #8c8c8c;
   @return line-background-image(-90deg, $size, $color);
 }
 
+@function grid-background-images($size, $color) {
+  @return horizontal-line-background-image($size, $color), vertical-line-background-image($size, $color)
+}
+
 @mixin grid($block-size, $block-color, $divider-num-blocks, $divider-color) {
-  $horizontal-block-lines: horizontal-line-background-image($block-size, $block-color);
-  $vertical-block-lines: vertical-line-background-image($block-size, $block-color);
-
+  $grid-background-images: grid-background-images($block-size, $block-color);
   // Divider Lines
-  // $divider-size: $block-size * $divider-num-blocks;
-  // $divider-line-start: $divider-size - 1;
-  // $divider-line-end: $divider-size;
-
-  background-image: $horizontal-block-lines, $vertical-block-lines;
+  background-image: $grid-background-images;
+  // background-image: $horizontal-block-lines, $vertical-block-lines;
   background-size: $block-size $block-size;
 }
 
