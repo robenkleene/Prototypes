@@ -8,13 +8,17 @@ $grid-color: rgba(0, 0, 0, .25);
 $grid-divider-color: rgba(0, 0, 0, .5);
 
 // Assets
+$monitor-padding: $grid-block-size * 3;
 $monitor-background-color: #000;
-$monitor-origin-x: $divider-size;
-$monitor-origin-y: $divider-size;
-$monitor-aspect-ratio-y: 3;
-$monitor-aspect-ratio-x: 4;
-$monitor-width: $divider-size * 4;
-$monitor-height: $monitor-width * ($monitor-aspect-ratio-y / $monitor-aspect-ratio-x);
+$monitor-origin-x: $divider-size - $monitor-padding;
+$monitor-origin-y: $divider-size - $monitor-padding;
+$screen-background-color: #fff;
+$screen-aspect-ratio-y: 3;
+$screen-aspect-ratio-x: 4;
+$screen-width: $divider-size * 4;
+$screen-height: $screen-width * ($screen-aspect-ratio-y / $screen-aspect-ratio-x);
+$monitor-height: $screen-height + $monitor-padding * 2;
+$monitor-width: $screen-width + $monitor-padding * 2;
 
 header,
 footer {
@@ -29,6 +33,15 @@ body {
 .monitor-frame-1 {
   left: $monitor-origin-x;
   top: $monitor-origin-y;
+}
+
+.screen {
+  background-color: $screen-background-color;
+  height: $screen-height;
+  position: absolute;
+  right: $monitor-padding;
+  top: $monitor-padding;
+  width: $screen-width;
 }
 
 .monitor {

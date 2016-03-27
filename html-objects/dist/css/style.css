@@ -8,11 +8,19 @@ body {
   margin: 0; }
 
 .monitor-frame-1 {
-  left: 100px;
-  top: 100px; }
+  left: 70px;
+  top: 70px; }
+
+.screen {
+  background-color: #fff;
+  height: 300px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 400px; }
 
 .monitor {
   background-color: #000;
-  height: 300px;
+  height: 360px;
   position: absolute;
-  width: 400px; }
+  width: 460px; }
