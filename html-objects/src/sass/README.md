@@ -9,7 +9,7 @@ Artboard is a simple way to add a checkered grid to any HTML element with CSS or
 To add a simple `10x10` grid with divider lines after every ten grid lines, just import the CSS:
 
 ``` html
-<link rel="stylesheet" href="[path to raster]/dist/raster.css">
+<link rel="stylesheet" href="[path to artboard]/dist/artboard.css">
 ```
 
 And give a tag the `artboard-grid` class:
