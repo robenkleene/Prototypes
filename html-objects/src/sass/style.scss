@@ -1,14 +1,15 @@
 @import 'artboard';
 
 // Grid
-$grid-block-size: 10px;
-$grid-divider-num-blocks: 10;
-$divider-size: $grid-block-size * $grid-divider-num-blocks;
-$grid-color: rgba(0, 0, 0, .25);
-$grid-divider-color: rgba(0, 0, 0, .5);
+$artboard-grid-size: 10px;
+$artboard-grid-color: rgba(0, 0, 0, .25);
+$artboard-divider-interval: 10;
+$artboard-divider-color: rgba(0, 0, 0, .5);
+$divider-size: $artboard-grid-size * $artboard-divider-interval;
+
 
 // Assets
-$monitor-padding: $grid-block-size * 3;
+$monitor-padding: $artboard-grid-size * 3;
 $monitor-background-color: #000;
 $monitor-origin-x: $divider-size - $monitor-padding;
 $monitor-origin-y: $divider-size - $monitor-padding;
@@ -26,7 +27,8 @@ footer {
 }
 
 body {
-  @include artboard-grid($grid-block-size, $grid-color, $grid-divider-num-blocks, $grid-divider-color);
+  // @include artboard-grid($grid-block-size, $grid-color, $grid-divider-num-blocks, $grid-divider-color);
+  @include artboard-grid();
   margin: 0;
 }
 

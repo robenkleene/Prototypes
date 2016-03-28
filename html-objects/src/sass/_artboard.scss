@@ -1,3 +1,10 @@
+$artboard-grid-size: 10px !default;
+$artboard-grid-color: rgba(0, 0, 0, .25) !default;
+$artboard-divider-interval: 10 !default;
+$artboard-divider-color: rgba(0, 0, 0, .5) !default;
+
+// Private
+
 @function line-background-image($degrees, $size, $color) {
   $line-start: $size - 1;
   $line-end: $size;
@@ -16,14 +23,21 @@
   @return horizontal-line-background-image($size, $color), vertical-line-background-image($size, $color)
 }
 
-@mixin artboard-grid($block-size, $block-color, $divider-num-blocks, $divider-color) {
+// Public
+
+
+@mixin artboard-grid($grid-size: $artboard-grid-size, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) {
   // Blocks
-  $grid-background-images: grid-background-images($block-size, $block-color);
+  $grid-background-images: grid-background-images($grid-size, $grid-color);
   // Dividers
-  $divider-size: $block-size * $divider-num-blocks;
+  $divider-size: $grid-size * $divider-interval;
   $divider-background-images: grid-background-images($divider-size, $divider-color);
   // Blocks & Dividers
   $background-images: join($divider-background-images, $grid-background-images);
   background-image: $background-images;
   background-size: $divider-size $divider-size;
+}
+
+.artboard-grid {
+  @include artboard-grid($artboard-grid-size, $artboard-grid-color, $artboard-divider-interval, $artboard-divider-color);
 }
