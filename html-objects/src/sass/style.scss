@@ -9,17 +9,35 @@ $divider-size: $artboard-grid-size * $artboard-divider-interval;
 @import 'artboard';
 
 // Assets
+
+// Monitor
 $monitor-padding: $artboard-grid-size * 3;
 $monitor-background-color: #000;
 $monitor-origin-x: $divider-size - $monitor-padding;
 $monitor-origin-y: $divider-size - $monitor-padding;
+
+// Screen
 $screen-background-color: #fff;
 $screen-aspect-ratio-y: 3;
 $screen-aspect-ratio-x: 4;
 $screen-width: $divider-size * 4;
 $screen-height: $screen-width * ($screen-aspect-ratio-y / $screen-aspect-ratio-x);
+
+// Monitor
 $monitor-height: $screen-height + $monitor-padding * 2;
 $monitor-width: $screen-width + $monitor-padding * 2;
+
+// Window
+$window-background-color: rgb(142, 142, 142);
+$window-padding: $artboard-grid-size;
+$window-height: $divider-size;
+$window-width: $divider-size;
+
+// pane
+$pane-height: $window-height - $window-padding * 2;
+$pane-width: $window-width - $window-padding * 2;
+$pane-origin-x: $window-padding;
+$pane-origin-y: $window-padding;
 
 header,
 footer {
@@ -51,13 +69,18 @@ body {
 }
 
 .window {
-  background-color: rgb(142, 142, 142);
+  background-color: $window-background-color;
   border-radius: 8px;
-  height: $divider-size;
+  height: $window-height;
   position: absolute;
-  width: $divider-size;
+  width: $window-width;
 }
 
 .pane {
- // TODO: Work on styling pane
+  background-color: $screen-background-color;
+  height: $pane-height;
+  left: $pane-origin-y;
+  position: absolute;
+  top: $pane-origin-x;
+  width: $pane-width;
 }

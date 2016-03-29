@@ -44,3 +44,11 @@ body {
   height: 100px;
   position: absolute;
   width: 100px; }
+
+.pane {
+  background-color: #fff;
+  height: 80px;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  width: 80px; }
