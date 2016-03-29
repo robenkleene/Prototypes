@@ -38,7 +38,7 @@ A custom grid can be constructed by setting these variables:
 
 ``` css
 /* Space between grid lines */
-$artboard-grid-size: 10px;
+$artboard-grid-px: 10px;
 /* Color of grid lines */
 $artboard-grid-color: rgba(0, 0, 0, .25);
 /* Number of grid lines between divider lines */
@@ -68,7 +68,7 @@ Or an SCSS `@mixin` with custom values:
 
 ``` css
 body {
-  /* @mixin artboard-grid($grid-size: $artboard-grid-size, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) { */
+  /* @mixin artboard-grid($grid-px: $artboard-grid-px, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) { */
   @include artboard-grid(10px, rgba(0, 0, 0, .25), 10, rgba(0, 0, 0, .5));
 }
 ```
@@ -88,7 +88,7 @@ Or included with a `@mixin`:
 
 ``` css
 .grid {
-  /* @mixin artboard-overlay($opacity: $artboard-overlay-opacity, $grid-size: $artboard-grid-size, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) { */
+  /* @mixin artboard-overlay($opacity: $artboard-overlay-opacity, $grid-px: $artboard-grid-px, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) { */
   @include artboard-overlay(.2);
 }
 ```

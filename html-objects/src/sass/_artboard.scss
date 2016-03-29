@@ -1,4 +1,4 @@
-$artboard-grid-size: 10px !default;
+$artboard-grid-px: 10px !default;
 $artboard-grid-color: rgba(0, 0, 0, .25) !default;
 $artboard-divider-interval: 10 !default;
 $artboard-divider-color: rgba(0, 0, 0, .5) !default;
@@ -26,20 +26,20 @@ $artboard-overlay-opacity: .5 !default;
 
 // Public
 
-@mixin artboard-grid($grid-size: $artboard-grid-size, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) {
+@mixin artboard-grid($grid-px: $artboard-grid-px, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) {
   // Blocks
-  $grid-background-images: grid-background-images($grid-size, $grid-color);
+  $grid-background-images: grid-background-images($grid-px, $grid-color);
   // Dividers
-  $divider-size: $grid-size * $divider-interval;
-  $divider-background-images: grid-background-images($divider-size, $divider-color);
+  $divider-px: $grid-px * $divider-interval;
+  $divider-background-images: grid-background-images($divider-px, $divider-color);
   // Blocks & Dividers
   $background-images: join($divider-background-images, $grid-background-images);
   background-image: $background-images;
-  background-size: $divider-size $divider-size;
+  background-size: $divider-px $divider-px;
 }
 
-@mixin artboard-overlay($opacity: $artboard-overlay-opacity, $grid-size: $artboard-grid-size, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) {
-  @include artboard-grid($grid-size, $grid-color, $divider-interval, $divider-color);
+@mixin artboard-overlay($opacity: $artboard-overlay-opacity, $grid-px: $artboard-grid-px, $grid-color: $artboard-grid-color, $divider-interval: $artboard-divider-interval, $divider-color: $artboard-divider-color) {
+  @include artboard-grid($grid-px, $grid-color, $divider-interval, $divider-color);
   opacity: $opacity;
   height: 100%;
   left: 0;
@@ -50,7 +50,7 @@ $artboard-overlay-opacity: .5 !default;
 }
 
 .artboard-grid {
-  @include artboard-grid($artboard-grid-size, $artboard-grid-color, $artboard-divider-interval, $artboard-divider-color);
+  @include artboard-grid($artboard-grid-px, $artboard-grid-color, $artboard-divider-interval, $artboard-divider-color);
 }
 
 .artboard-overlay {
