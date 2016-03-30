@@ -47,6 +47,7 @@ $pane-top: nth($window-padding, 1);
 $toolbar-height: nth($window-padding, 1);
 $dot-size: 6px;
 $dot-top: ($toolbar-height - $dot-size) / 2;
+$dot-offset-left: $artboard-grid-px;
 
 header {
   margin: 20px;
@@ -103,6 +104,18 @@ body {
       position: absolute;
       top: $dot-top;
       width: $dot-size;
+    }
+
+    .dot:nth-child(1) {
+      left: $dot-offset-left;
+    }
+
+    .dot:nth-child(2) {
+      left: $dot-offset-left * 2;
+    }
+
+    .dot:nth-child(3) {
+      left: $dot-offset-left * 3;
     }
   }
 }

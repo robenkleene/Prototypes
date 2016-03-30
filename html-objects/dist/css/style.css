@@ -59,3 +59,9 @@ body {
       position: absolute;
       top: 7px;
       width: 6px; }
+    .window .toolbar .dot:nth-child(1) {
+      left: 10px; }
+    .window .toolbar .dot:nth-child(2) {
+      left: 20px; }
+    .window .toolbar .dot:nth-child(3) {
+      left: 30px; }
