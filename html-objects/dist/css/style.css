@@ -13,21 +13,11 @@
   width: 100%;
   z-index: 1000; }
 
-header,
-footer {
+header {
   margin: 20px; }
 
 body {
   margin: 0; }
-
-.screen {
-  background-color: #fff;
-  border-radius: 8px;
-  height: 300px;
-  left: 30px;
-  position: absolute;
-  top: 30px;
-  width: 400px; }
 
 .monitor {
   background-color: #000;
@@ -37,6 +27,14 @@ body {
   position: absolute;
   top: 70px;
   width: 460px; }
+  .monitor .screen {
+    background-color: #fff;
+    border-radius: 8px;
+    height: 300px;
+    left: 30px;
+    position: absolute;
+    top: 30px;
+    width: 400px; }
 
 .window {
   background-color: #8e8e8e;
@@ -44,11 +42,20 @@ body {
   height: 100px;
   position: absolute;
   width: 100px; }
-
-.pane {
-  background-color: #fff;
-  height: 70px;
-  left: 10px;
-  position: absolute;
-  top: 20px;
-  width: 80px; }
+  .window .pane {
+    background-color: #fff;
+    height: 70px;
+    left: 10px;
+    position: absolute;
+    top: 20px;
+    width: 80px; }
+  .window .toolbar {
+    padding-left: 10px; }
+    .window .toolbar .dot {
+      background-color: #fff;
+      border-radius: 50%;
+      float: left;
+      height: 6px;
+      position: absolute;
+      top: 7px;
+      width: 6px; }

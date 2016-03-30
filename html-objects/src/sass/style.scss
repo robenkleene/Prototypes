@@ -37,30 +37,23 @@ $window-padding: ($artboard-grid-px * 2) $artboard-grid-px $artboard-grid-px $ar
 $window-height: $divider-px;
 $window-width: $divider-px;
 
-// pane
+// Pane
 $pane-height: $window-height - nth($window-padding, 1) - nth($window-padding, 3);
 $pane-width: $window-width - nth($window-padding, 2) - nth($window-padding, 2);
-
 $pane-left: nth($window-padding, 4);
 $pane-top: nth($window-padding, 1);
 
-header,
-footer {
+// Toolbar
+$toolbar-height: nth($window-padding, 1);
+$dot-size: 6px;
+$dot-top: ($toolbar-height - $dot-size) / 2;
+
+header {
   margin: 20px;
 }
 
 body {
   margin: 0;
-}
-
-.screen {
-  background-color: $screen-background-color;
-  border-radius: 8px;
-  height: $screen-height;
-  left: $screen-left;
-  position: absolute;
-  top: $screen-top;
-  width: $screen-width;
 }
 
 .monitor {
@@ -71,6 +64,16 @@ body {
   position: absolute;
   top: $monitor-top;
   width: $monitor-width;
+
+  .screen {
+    background-color: $screen-background-color;
+    border-radius: 8px;
+    height: $screen-height;
+    left: $screen-left;
+    position: absolute;
+    top: $screen-top;
+    width: $screen-width;
+  }
 }
 
 .window {
@@ -79,13 +82,27 @@ body {
   height: $window-height;
   position: absolute;
   width: $window-width;
-}
 
-.pane {
-  background-color: $screen-background-color;
-  height: $pane-height;
-  left: $pane-left;
-  position: absolute;
-  top: $pane-top;
-  width: $pane-width;
+  .pane {
+    background-color: $screen-background-color;
+    height: $pane-height;
+    left: $pane-left;
+    position: absolute;
+    top: $pane-top;
+    width: $pane-width;
+  }
+
+  .toolbar {
+    padding-left: $pane-left;
+
+    .dot {
+      background-color: $screen-background-color;
+      border-radius: 50%;
+      float: left;
+      height: $dot-size;
+      position: absolute;
+      top: $dot-top;
+      width: $dot-size;
+    }
+  }
 }
