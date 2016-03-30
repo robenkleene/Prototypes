@@ -24,8 +24,8 @@ body {
   background-color: #fff;
   border-radius: 8px;
   height: 300px;
+  left: 30px;
   position: absolute;
-  right: 30px;
   top: 30px;
   width: 400px; }
 
@@ -47,8 +47,8 @@ body {
 
 .pane {
   background-color: #fff;
-  height: 80px;
-  top: 10px;
-  position: absolute;
+  height: 70px;
   left: 10px;
+  position: absolute;
+  top: 20px;
   width: 80px; }
